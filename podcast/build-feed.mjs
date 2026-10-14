@@ -15,7 +15,8 @@ const live = episodes.filter((e) => Date.parse(e.release) <= now && existsSync(j
 const items = live.map((e, i) => {
   const mp3 = join(here, `${e.slug}.mp3`); copyFileSync(mp3, join(out, 'audio', `${e.slug}.mp3`));
   const dur = Number(readFileSync(join(here, `${e.slug}.duration`), 'utf8'));
-  const desc = `${e.summary}\n\nWatch it on YouTube: ${e.youtube}\n\nFiction. Voices are AI-generated.`;
+  const support = show.support ? `\n\nKeep 1690 on the air: become a Listener on 1690 ($2.99/month, your name in the end credits) ${show.support.monthly} or leave a tip ${show.support.tip}` : '';
+  const desc = `${e.summary}\n\nWatch it on YouTube: ${e.youtube}${support}\n\nFiction. Voices are AI-generated.`;
   return `<item><title>${esc(e.title)}</title><description>${esc(desc)}</description><itunes:summary>${esc(desc)}</itunes:summary>`
     + `<enclosure url="${show.base}/audio/${e.slug}.mp3" length="${statSync(mp3).size}" type="audio/mpeg"/><guid isPermaLink="false">${e.slug}</guid>`
     + `<pubDate>${new Date(e.release).toUTCString()}</pubDate><itunes:duration>${hms(dur)}</itunes:duration><itunes:episode>${i + 1}</itunes:episode><itunes:episodeType>full</itunes:episodeType><itunes:explicit>${show.explicit}</itunes:explicit><link>${esc(e.youtube)}</link></item>`;
@@ -32,5 +33,5 @@ ${items.join('\n')}
 </channel></rss>
 `;
 writeFileSync(join(out, 'feed.xml'), feed);
-writeFileSync(join(out, 'index.html'), `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SIGNAL 309</title><style>body{background:#050706;color:#ece8e0;font:17px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto;padding:24px 16px}img{max-width:100%;border-radius:8px}a{color:#e8a33d}</style><img src="cover.jpg" alt="SIGNAL 309 cover"><h1>SIGNAL 309</h1><p>${esc(show.summary)}</p><ul>${live.map((e) => `<li><b>${esc(e.title)}</b>: <a href="${esc(e.youtube)}">watch</a> · <a href="audio/${e.slug}.mp3">listen</a></li>`).join('')}</ul><p><a href="feed.xml">Podcast feed (RSS)</a></p>`);
+writeFileSync(join(out, 'index.html'), `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SIGNAL 309</title><style>body{background:#050706;color:#ece8e0;font:17px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto;padding:24px 16px}img{max-width:100%;border-radius:8px}a{color:#e8a33d}</style><img src="cover.jpg" alt="SIGNAL 309 cover"><h1>SIGNAL 309</h1><p>${esc(show.summary)}</p><ul>${live.map((e) => `<li><b>${esc(e.title)}</b>: <a href="${esc(e.youtube)}">watch</a> · <a href="audio/${e.slug}.mp3">listen</a></li>`).join('')}</ul>${show.support ? `<p><b>Keep 1690 on the air:</b> <a href="${show.support.monthly}">become a Listener on 1690</a> ($2.99/month, your name in the end credits) or <a href="${show.support.tip}">leave a tip</a>.</p>` : ''}<p><a href="feed.xml">Podcast feed (RSS)</a></p>`);
 console.log(`feed: ${live.length} of ${episodes.length} episodes live`);

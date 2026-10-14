@@ -11,7 +11,11 @@
       "Science Fiction"
     ],
     "explicit": false,
-    "summary": "In 1987, lightning burned out a small-town Texas radio tower and left a hole in the dial. Every night at 3:09 a.m., 1690 AM carries the evening news from Aster, a world one step over from ours. Some nights it carries something worse: calls from our own past, live, from people who can hear you answer. A serialized sci-fi mystery audio drama with a cipher hidden in every episode. All stories are fiction; voices are AI-generated. Stay tuned to 1690."
+    "summary": "In 1987, lightning burned out a small-town Texas radio tower and left a hole in the dial. Every night at 3:09 a.m., 1690 AM carries the evening news from Aster, a world one step over from ours. Some nights it carries something worse: calls from our own past, live, from people who can hear you answer. A serialized sci-fi mystery audio drama with a cipher hidden in every episode. All stories are fiction; voices are AI-generated. Stay tuned to 1690.",
+    "support": {
+      "monthly": "https://buy.stripe.com/4gM14m1IDgLdgLB3q9dAk00",
+      "tip": "https://buy.stripe.com/6oU3cufzt3Yr2ULd0JdAk01"
+    }
   },
   "episodes": [
     {
