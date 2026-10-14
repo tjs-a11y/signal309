@@ -1,0 +1,39 @@
+{
+  "show": {
+    "title": "SIGNAL 309",
+    "author": "Hummingbird",
+    "email": "hummingbird.signal309@yahoo.com",
+    "site": "https://www.youtube.com/@hummingbird-s4w",
+    "base": "https://tjs-a11y.github.io/signal309",
+    "language": "en-us",
+    "category": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "explicit": false,
+    "summary": "In 1987, lightning burned out a small-town Texas radio tower and left a hole in the dial. Every night at 3:09 a.m., 1690 AM carries the evening news from Aster, a world one step over from ours. Some nights it carries something worse: calls from our own past, live, from people who can hear you answer. A serialized sci-fi mystery audio drama with a cipher hidden in every episode. All stories are fiction; voices are AI-generated. Stay tuned to 1690."
+  },
+  "episodes": [
+    {
+      "slug": "signal-309-s1e01",
+      "title": "Episode 1: \"1690\"",
+      "release": "2026-10-15T23:00:00Z",
+      "youtube": "https://youtu.be/CTbfZtOFKcc",
+      "summary": "Every night at 3:09 a.m., a radio station that went silent in 1987 broadcasts nine minutes of tomorrow's news. Tonight, a 911 dispatcher hears it, and it says her name."
+    },
+    {
+      "slug": "signal-309-concord-01",
+      "title": "The Concord Hour 1: News From Another World",
+      "release": "2026-10-17T23:00:00Z",
+      "youtube": "https://youtu.be/nXBqF9sGhps",
+      "summary": "The dead station on 1690 picks up the evening news from Aster: a galactic council debating the Quiet World, 40,000 refugees at a closed border, an election with a candidate who isn't a person. And at the end, a message for us."
+    },
+    {
+      "slug": "signal-309-drift-01",
+      "title": "Drift 1: \"105 and Rising\"",
+      "release": "2026-10-18T23:00:00Z",
+      "youtube": "https://youtu.be/1oWiNEcAEh8",
+      "summary": "At 3:09 a.m. the radio plays helicopters, rockets, and a 21-year-old Marine radioman on a Saigon rooftop on April 29, 1975, calling a Texas station. Then he hears the dispatcher answer. The characters are fiction; the evacuation signal is real history."
+    }
+  ]
+}
