@@ -28,3 +28,13 @@ jobs:
     steps:
       - id: d
         uses: actions/deploy-pages@v4
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the live feed and cover
+        run: |
+          sleep 20
+          curl -fsS https://tjs-a11y.github.io/signal309/feed.xml -o feed.xml
+          python3 -c "import xml.etree.ElementTree as E;c=E.parse('feed.xml').getroot()[0];ns={'i':'http://www.itunes.com/dtds/podcast-1.0.dtd'};print('title:',c.find('title').text);print('email:',c.find('i:owner/i:email',ns).text);print('image:',c.find('i:image',ns).get('href'));print('episodes live:',len(c.findall('item')))"
+          curl -fsS -o /dev/null -w "cover: %{http_code} %{content_type} %{size_download} bytes\n" https://tjs-a11y.github.io/signal309/cover.jpg
