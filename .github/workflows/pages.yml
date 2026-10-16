@@ -19,6 +19,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: node podcast/build-feed.mjs site
+        env:
+          # Custom CDN domain for audio (repository variable). Empty = serve audio from Pages, as before.
+          CDN_BASE_URL: ${{ vars.CDN_BASE_URL }}
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }
   deploy:
